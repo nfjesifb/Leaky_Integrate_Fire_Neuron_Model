@@ -13,32 +13,36 @@ module set_vars(input set_vars,
     reg [7:0] weightReg;
     reg [7:0] thresholdReg;
 
-    always @(posedge set_vars ) begin
-        appender = 0;
-        tauReg = 0;
-        weightReg = 0;
-        thresholdReg = 0;
-    end
+    reg first_append;
 
     always @(negedge set_vars ) begin
-        tau = tauReg;
-        weight = weightReg;
-        threshold = thresholdReg;
+        tau <= tauReg;
+        weight <= weightReg;
+        threshold <= thresholdReg;
     end
 
     always @(posedge clk) begin
         if (set_vars) begin
-            tauReg[appender] = expd;
-            weightReg[appender] = w;
-            thresholdReg[appender] = t;
+            if (first_append = 0) begin
+                tauReg[appender] <= 0;
+                weightReg[appender] <= 0;
+                thresholdReg[appender] <= 0;
+                first_append <= 1;
+            end 
+            else begin
+                tauReg[appender] <= expd;
+                weightReg[appender] <= w;
+                thresholdReg[appender] <= t;
+            end
         end  
         else begin
+            first_append <= 0;
         end      
     end
 
     always @(negedge clk) begin
         if (set_vars) begin
-            appender = appender+1;
+            appender <= appender+1;
         end  
         else begin
         end      

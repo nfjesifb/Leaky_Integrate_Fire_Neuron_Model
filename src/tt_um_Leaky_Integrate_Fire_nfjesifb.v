@@ -11,6 +11,7 @@ module tt_um_Leaky_Integrate_Fire_nfjesifb #( parameter MAX_COUNT = 24'd10_000_0
     wire rst = ! rst_n;
 
     assign uio_out[7:1] = 0;
+    assign uio_oe[7:0] = 0;
 
     top t(ui_in[0], ui_in[1], ui_in[2], ui_in[3], ui_in[4], clk, rst, uio_out[0], uo_out);
 
