@@ -18,7 +18,7 @@ module LIF(input syn,
 
     always @(posedge clk) begin
         if (rst) begin
-            voltageReg <= 0;
+            voltageReg = 0;
         end 
         else begin
             voltageReg = voltageReg + syn_scaled;
