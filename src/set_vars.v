@@ -43,8 +43,6 @@ module set_vars(input set_vars,
     always @(negedge clk) begin
         if (set_vars) begin
             appender <= appender+1;
-        end  
-        else begin
-        end      
+        end
     end
 endmodule
