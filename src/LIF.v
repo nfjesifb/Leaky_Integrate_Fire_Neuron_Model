@@ -21,10 +21,10 @@ module LIF(input syn,
             voltageReg <= 0;
         end 
         else begin
-        voltageReg <= voltageReg + syn_scaled;
-        V <= voltageReg;
+            voltageReg = voltageReg + syn_scaled;
+            V = voltageReg;
+            voltageReg = voltage_prime;
         end
-        voltageReg = voltage_prime;
     end
 
     //always @(negedge clk) begin
