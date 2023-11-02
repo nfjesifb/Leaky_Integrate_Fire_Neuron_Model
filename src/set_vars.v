@@ -23,7 +23,7 @@ module set_vars(input set_vars,
 
     always @(posedge clk) begin
         if (set_vars) begin
-            if (first_append = 0) begin
+            if (first_append == 0) begin
                 tauReg[appender] <= 0;
                 weightReg[appender] <= 0;
                 thresholdReg[appender] <= 0;
