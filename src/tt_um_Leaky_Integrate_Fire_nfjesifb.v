@@ -8,17 +8,7 @@ module tt_um_Leaky_Integrate_Fire_nfjesifb #( parameter MAX_COUNT = 24'd10_000_0
     input  wire       clk,      // clock
     input  wire       rst_n     // reset_n - low to reset
 );
-    wire rst = ! rst_n
-    top t(ui_in[0], 
-          ui_in[1], 
-          ui_in[2], 
-          ui_in[3], 
-          ui_in[4], 
-          clk, 
-          rst, 
-          uio_out[0], 
-          uo_out);
-
-
+    wire rst = ! rst_n;
+    top t(ui_in[0], ui_in[1], ui_in[2], ui_in[3], ui_in[4], clk, rst, uio_out[0], uo_out);
 
 endmodule
