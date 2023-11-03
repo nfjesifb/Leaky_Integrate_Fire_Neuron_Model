@@ -7,22 +7,21 @@ module LIF(input syn,
            output axon, 
            output reg [7:0] V);
 
-    reg [7:0] voltageReg;
+    //reg [7:0] voltageReg;
 
     wire [7:0] syn_scaled;
     wire [7:0] voltage_prime;
 
     weigher scalar(syn, weight, syn_scaled);
-    comparator compare(voltageReg, threshold, axon);
-    subtractor subtractor(voltageReg, voltage_prime);
+    comparator compare(V, threshold, axon);
+    subtractor subtractor(V, voltage_prime);
 
     always @(posedge clk) begin
         if (rst) begin
-            voltageReg = 0;
+            V = 0;
         end 
         else begin
-            voltageReg = voltage_prime + syn_scaled;
-            V = voltageReg;
+            V = voltage_prime + syn_scaled;
             //voltageReg = voltage_prime;
         end
     end
