@@ -26,9 +26,9 @@ module set_vars(input set_vars,
             thresholdReg[appender] <= t;
         end  
         else begin
-            tauReg = 0;
-            weightReg = 0;
-            thresholdReg = 0;
+            tauReg <= 0;
+            weightReg <= 0;
+            thresholdReg <= 0;
         end      
     end
 
