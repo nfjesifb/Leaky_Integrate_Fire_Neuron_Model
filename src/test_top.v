@@ -49,9 +49,9 @@ module top_test;
         // Test functionality
         rst = 1; #20; // Reset the module
         rst = 0; #10; // Release reset
-
-        set_vars = 1; expd = 1; w = 1; t = 1; #170; // Set all inputs to 1 for 8 clock cycles
-        set_vars = 0; syn = 1; #10 // Change inputs to some other values
+        //set_vars = 1; #20
+        set_vars = 1; expd = 1; w = 1; t = 1; #160; // Set all inputs to 1 for 8 clock cycles
+        set_vars = 0; syn = 1; #40 // Change inputs to some other values
         syn = 0;
         #200 $finish; // Stop the simulation after 200 time units
     end

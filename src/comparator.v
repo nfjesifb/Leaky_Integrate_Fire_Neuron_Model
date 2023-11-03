@@ -3,7 +3,7 @@ module comparator(input [7:0] V, input [7:0] threshold, output reg axon);
       if (V<threshold) begin
         axon <= 0;
       end
-      else begin
+      if (V >= threshold) begin
         axon <= 1;
       end
     end

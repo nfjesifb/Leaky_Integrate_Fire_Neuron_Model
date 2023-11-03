@@ -23,12 +23,12 @@ module LIF(input syn,
         else begin
             voltageReg = voltageReg + syn_scaled;
             V = voltageReg;
-            voltageReg = voltage_prime;
+            //voltageReg = voltage_prime;
         end
     end
 
-    //always @(negedge clk) begin
-    //    voltageReg <= voltage_prime;
-    //end
+    always @(negedge clk) begin
+        voltageReg <= voltage_prime;
+    end
 
 endmodule
