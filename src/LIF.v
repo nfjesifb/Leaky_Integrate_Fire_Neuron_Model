@@ -14,7 +14,7 @@ module LIF(input syn,
 
     weigher scalar(syn, weight, syn_scaled);
     comparator compare(V, threshold, axon);
-    subtractor subtractor(V, voltage_prime);
+    decay decayer(V, tau, voltage_prime);
 
     always @(posedge clk) begin
         if (rst) begin
